@@ -8,10 +8,10 @@
     <version>0.1.0</version>
     <packaging>pom</packaging>
 
-    <!--<modules>-->
-        <!--<module>api</module>-->
-        <!--<module>db</module>-->
-        <!--<module>generator</module>-->
-    <!--</modules>-->
+    <modules>
+        <module>api</module>
+        <module>db</module>
+        <module>generator</module>
+    </modules>
 
 </project>
