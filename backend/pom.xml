@@ -9,9 +9,11 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>api</module>
-        <module>db</module>
-        <module>generator</module>
+        <module>generator-app</module>
     </modules>
 
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <java.version>1.8</java.version>
+    </properties>
 </project>
