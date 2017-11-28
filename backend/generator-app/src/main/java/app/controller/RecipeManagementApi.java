@@ -7,7 +7,8 @@ import org.springframework.web.bind.annotation.RestController;
  * Created by sergioletras on 27/11/17.
  */
 @RestController
-public class Controller {
+@RequestMapping("/recipes")
+public class RecipeManagementApi {
 
     @RequestMapping("/")
     public String index() {
