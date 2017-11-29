@@ -4,7 +4,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * Created by sergioletras on 27/11/17.
+ * Recipe Management API responsible for operations related with
+ * management and search of recipes
+ *
+ * The following operations are available:
+ *
+ * generateRecipe(listIngredientIds)
+ *
+ * chooseRecipe(recipe)
+ *
+ * saveRecipe(recipe)
+ *
+ * generateShoppingList(listRecipes)
+ *
  */
 @RestController
 @RequestMapping("/recipes")
