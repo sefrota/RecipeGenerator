@@ -1,8 +1,11 @@
 package app.controller;
 
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import app.business.PantryManager;
+import app.model.Ingredient;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 /**
  * Pantry Management API responsible for operations related with
@@ -12,15 +15,20 @@ import org.springframework.web.bind.annotation.RestController;
  *
  * addIngredient(ingredient)
  *
- * updateIngredient(id, ingredient)
+ * updateIngredient(ingredient)
  *
  * removeIngredient(id)
  *
  * getIngredients(filter)
+ *
+ * getIngredient(id)
  */
 @RestController
 @RequestMapping("/pantry")
 public class PantryManagementApi {
+
+    @Autowired
+    private PantryManager manager;
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String index() {
@@ -28,8 +36,28 @@ public class PantryManagementApi {
     }
 
     @RequestMapping(value = "/getIngredients", method = RequestMethod.GET)
-    public String getIngredients() {
-        return "Greetings from Spring Boot!";
+    public List<Ingredient> getIngredients() {
+        List<Ingredient> ingredients = manager.getIngredients();
+        return ingredients;
     }
 
+    @RequestMapping(value = "/getIngredient/{id}", method = RequestMethod.GET)
+    public Ingredient getIngredient(@PathVariable double id){
+        return manager.getIngredient(id);
+    }
+
+    @RequestMapping(value = "/addIngredient", method = RequestMethod.POST)
+    public void addIngredient(@RequestBody Ingredient ingredient){
+        manager.addIngredient(ingredient);
+    }
+
+    @RequestMapping(value = "/updateIngredient", method = RequestMethod.PUT)
+    public void updateIngredient(@RequestBody Ingredient ingredient){
+        manager.updateIngredient(ingredient);
+    }
+
+    @RequestMapping(value = "/removeIngredient/{id}", method = RequestMethod.DELETE)
+    public void removeIngredient(@PathVariable double id){
+        manager.removeIngredient(id);
+    }
 }
