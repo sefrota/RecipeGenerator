@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.RestController;
  * Recipe Management API responsible for operations related with
  * management and search of recipes
  *
+ * It uses Api https://developer.edamam.com/
+ *
  * The following operations are available:
  *
  * generateRecipe(listIngredientIds)
